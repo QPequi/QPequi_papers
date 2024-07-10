@@ -1,0 +1,5 @@
+\babel@toc {english}{}\relax 
+\contentsline {chapter}{List of Figures}{}{chapter*.3}%
+\contentsline {chapter}{List of Tables}{}{chapter*.4}%
+\contentsline {chapter}{\numberline {1}That is the first chapter}{1}{chapter.5}%
+\contentsline {chapter}{\numberline {A}The first appendix}{3}{appendix.6}%

@@ -1,0 +1,155 @@
+
+
+
+
+
+import numpy as np
+import matplotlib.pyplot as plt
+from numpy import linalg as LA
+from scipy.linalg import expm
+
+
+
+plt.rcParams["font.size"] = 15
+plt.rcParams["text.usetex"] = True
+
+
+j = 500
+gx = 1
+dim = np.int(2*j+1)
+vect = np.linspace(0, 100, 150)
+
+
+
+#Defining the Jx, Jy and Jz in z basis
+def Jx(j):
+    Jx = np.zeros((dim, dim))
+    
+    aut1=0
+    aut2=0
+    
+    for m1 in np.arange(-j, j+1, 1): #row
+        for m2 in np.arange(-j, j+1, 1): #column
+            if m1 == m2+1:
+                aut1 = np.sqrt(j*(j+1)-m2*(m2+1))/2
+            if m1 == m2-1:
+                aut2 = np.sqrt(j*(j+1)-m2*(m2-1))/2
+            
+            p1 = np.int(m1+j)
+            p2 = np.int(m2+j)
+            
+            Jx[p1,p2] = aut1+aut2
+            
+            aut1 = aut2 = 0
+    return Jx
+
+def Jy(j):
+    Jy = np.zeros((dim, dim),dtype=complex)
+    
+    aut1=0
+    aut2=0
+    
+    for m1 in np.arange(-j, j+1, 1): #row
+        for m2 in np.arange(-j, j+1, 1): #column
+            if m1 == m2+1:
+                aut1 = np.sqrt(j*(j+1)-m2*(m2+1))/2
+            if m1 == m2-1:
+                aut2 = np.sqrt(j*(j+1)-m2*(m2-1))/2
+            
+            p2 = np.int(m2+j)
+            p1 = np.int(m1+j)
+            
+            Jy[p1,p2] = 1j*(aut1-aut2)
+            
+            aut1 = aut2 = 0
+    return Jy
+
+def Jz(j):
+    Jz = np.zeros((dim, dim))
+    
+    for m in np.arange(-j, j+1, 1):
+        p = np.int(m+j)
+        Jz[p,p] = -m
+    return Jz
+
+
+def dag(A):
+    return np.transpose(np.conjugate(A))
+
+# Commutator 
+def Comm(A,B):
+    return np.dot(A,B)-np.dot(B,A)
+
+
+
+#Initial LMG hamiltonian
+h=0
+H0 = -h*Jz(j) - (gx/2/j)*np.dot(Jx(j),Jx(j))
+
+
+#Initial hamiltonian's eigenvalues and eigenvectors
+E0, V0 = LA.eig(H0)
+index = np.argsort(E0) #Get the index list that would sort E and V
+E0 = E0[index] 
+V0 = V0[:,index]
+
+
+#initial state
+rho0 = np.dot(V0[:,0].reshape(dim,1), np.conjugate(V0[:,0]).reshape(1, dim))  #pure ground-state of H0
+
+n = 31
+O_mean = np.zeros(n)
+i = 0
+
+###################################################
+#
+# Time average OTOC \overline{< [Wt, V] >}
+#
+# I want to investigate the behaviour of this quantity in the ESQPT
+#
+###################################################
+
+delta = 0.0001
+G = np.dot(Jx(j), Jx(j))
+W0 = expm(1j*delta*G)
+hf = np.linspace(0,3,n)
+
+
+for h in hf:
+
+
+    #Final LMG hamiltonian
+    Hf = -h*Jz(j) - (gx/2/j)*np.dot(Jx(j),Jx(j))
+    
+    O = np.zeros(len(vect))  #Loschmidt Echo
+    # Precision = np.zeros(len(vect))
+    
+    for tt in range(len(vect)):
+        U = expm(-1j*Hf*vect[tt])
+        Wt = np.dot(U, np.dot(W0, dag(U)))
+        
+        
+        O[tt] = np.dot(np.conjugate(V0[:,0]), np.dot(np.dot(dag(Comm(Wt, rho0)), Comm(Wt, rho0)), V0[:,0]))
+        
+    
+    
+    O_mean[i] = (1/max(vect))*np.trapz(O, vect)
+    i = i+1
+
+plt.plot(np.linspace(0,3,n), O_mean, label=r"$N={}, \delta = {}$".format(2*j, delta))
+plt.axvline(1, c='r', linestyle='--')
+# plt.ticklabel_format(axis='y', style='sci', scilimits=(-3,-3))
+plt.legend(fontsize=15)
+plt.xlabel(r'$\lambda$', fontsize=18)
+plt.ylabel(r'$\overline{O}$', fontsize=18)
+plt.tight_layout()
+# plt.savefig("TimeAverage_OTOC_N1000_LMG.pdf")
+
+
+
+
+# np.savetxt("TimeAverage_OTOC_N100_LMG.txt", O_mean)
+
+
+
+

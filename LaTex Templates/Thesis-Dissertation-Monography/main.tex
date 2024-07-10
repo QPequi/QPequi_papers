@@ -1,0 +1,263 @@
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[
+12pt, english,
+onehalfspacing, %Alternatives: singlespacing, onehalfspacing or doublespacing
+%draft, % Uncomment to enable draft mode (no pictures, no links, overfull hboxes indicated)
+nolistspacing, % If the document is onehalfspacing or doublespacing, uncomment this to set spacing in lists to single
+liststotoc, % Uncomment to add the list of figures/tables/etc to the table of contents
+%toctotoc, % Uncomment to add the main table of contents to the table of contents
+%parskip, % Uncomment to add space between paragraphs
+%nohyperref, % Uncomment to not load the hyperref package
+headsepline, % Uncomment to get a line under the header
+%chapterinoneline, % Uncomment to place the chapter title next to the number on one line
+consistentlayout, % Uncomment to change the layout of the declaration, abstract and acknowledgements pages to match the default layout
+]{Thesis} % The class file specifying the document structure
+
+\usepackage[utf8]{inputenc} % Required for inputting international characters
+\usepackage[T1]{fontenc} % Output font encoding for international characters
+\usepackage{libertine} % Use the Palatino font by default
+\usepackage[autostyle=true]{csquotes}
+\usepackage{abstract}   
+\usepackage{graphicx}   
+\usepackage{psfrag}    
+\usepackage{subfigure} 
+\usepackage{url}       
+\usepackage{stfloats} 
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{braket}
+\usepackage{array}
+\usepackage{lettrine}
+\usepackage{siunitx}
+\usepackage{physics}
+\usepackage{dsfont}
+\usepackage{pdfpages}
+\usepackage{lipsum}
+
+
+\usepackage[backend=biber, biblabel=brackets, maxbibnames=99, style=phys,sorting=none]{biblatex}% Use the bibtex backend with the authoryear citation style (which resembles APA)
+\addbibresource{thesis_bibliography.bib} % The filename of the bibliography
+\usepackage[autostyle=true]{csquotes} % Required to generate language-dependent quotes in the bibliography
+
+\sisetup{output-exponent-marker=\ensuremath{\mathrm{e}}}
+
+\newtheorem{mydef}{Definition}
+%\newcommand{\abstracttextfont}{\normalfont\large}
+
+%----------------------------------------------------------------------------------------
+%	MARGIN SETTINGS
+%----------------------------------------------------------------------------------------
+
+\geometry{
+	paper=a4paper, % Change to letterpaper for US letter
+	inner=2.5cm, % Inner margin
+	outer=3.8cm, % Outer margin
+	bindingoffset=.5cm, % Binding offset
+	top=1.5cm, % Top margin
+	bottom=1.5cm, % Bottom margin
+	%showframe, % Uncomment to show how the type block is set on the page
+}
+
+%----------------------------------------------------------------------------------------
+%	THESIS INFORMATION
+%----------------------------------------------------------------------------------------
+
+\thesistitle{This is the quantum title of your thesis} % Print it elsewhere with \ttitle
+
+\supervisor{Jane/John \textsc{Doe}} % Print it elsewhere with \supname
+
+\examiner{Jane/John Doe I \\ Jane/John Doe II \\ Jane/John Doe III \\ Jane/John Doe IV} % Print it elsewhere with \examname
+
+\degree{Monography/Master/PhD in Physics} % Print it elsewhere with \degreename
+
+\author{Jane/John \textsc{Doe}} % Print it elsewhere with \authorname
+
+\addresses{Goiânia, YEAR} % Print it elsewhere with \addressname
+
+\subject{Quantum Stuff} % Print it elsewhere with \subjectname
+
+\keywords{Quantum; More Quantum} % Print it elsewhere with \keywordnames
+
+\university{\href{http://www.ufg.br}{Federal University of Goiás}} % Print it elsewhere with \univname
+
+\department{\href{http://if.ufg.br}{Institute of Physics}} % Print it elsewhere with \deptname
+
+\group{\href{http://qpequi.com/}{Quantum Pequi Group}} % Print it elsewhere with \groupname
+
+\AtBeginDocument{
+\hypersetup{pdftitle=\ttitle} % Set the PDF's title to your title
+\hypersetup{pdfauthor=\authorname} % Set the PDF's author to your name
+\hypersetup{pdfkeywords=\keywordnames} % Set the PDF's keywords to your keywords
+}
+
+\begin{document}
+
+%\frontmatter % Use roman page numbering style (i, ii, iii, iv...) for the pre-content pages
+\pagenumbering{gobble} %suppress the number counting
+\pagestyle{plain} % Default to the plain heading style until the thesis style is called for the body content
+
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\begin{figure}[t!]
+\centering
+\includegraphics[scale=0.15]{Figures/logo_ufg.eps} \hspace{5cm} \includegraphics[scale=0.05]{Figures/logo_qpequi.png}
+\end{figure}
+
+\vspace{2cm}
+
+\begin{center}
+{\Large \bf \univname}\\
+
+\vspace{0.5cm}
+
+{\large \deptname}\\
+\vspace{0.5cm}
+{\large \groupname}
+
+\vspace{2cm}
+\noindent\makebox[\linewidth]{\rule{0.8\paperwidth}{1pt}}
+\vspace{1cm}
+
+\title{4cm}{\bf \Large \ttitle} \\ % Title of the document
+
+\vspace{1cm}
+\noindent\makebox[\linewidth]{\rule{0.8\paperwidth}{1pt}}
+\vspace{2cm}
+
+{\large \degreename}\\
+\vspace{1.5cm}
+ 
+{\bf \Large \authorname}\\ 
+\vspace{3.0cm} 
+
+{\large \addressname}\\
+\vspace{0.2cm}
+{\large Brazil}
+\end{center}
+
+\newpage
+\newpage
+
+%----------------------------------------------------------------------------------------
+%	QUOTATION PAGE
+%----------------------------------------------------------------------------------------
+
+\vspace*{0.2\textheight}
+\thispagestyle{empty}
+
+\noindent\enquote{\large \itshape Somewhere, something incredible is waiting to be known.}\bigbreak
+
+\hfill {\large Carl Sagan}
+
+\newpage
+\newpage
+
+%----------------------------------------------------------------------------------------
+%	DEDICATION
+%----------------------------------------------------------------------------------------
+
+\vspace*{0.2\textheight}
+\thispagestyle{empty}
+
+\vspace{5cm}
+
+\hfill \enquote{\large \itshape To someone important.}\bigbreak
+
+\newpage
+\newpage
+
+%----------------------------------------------------------------------------------------
+%	ACKNOWLEDGEMENTS
+%----------------------------------------------------------------------------------------
+
+\begin{center}
+{\bf \Large Acknowledgements}
+\end{center}
+
+\vspace{2cm}
+
+\lipsum[2-3]
+
+\newpage
+\newpage
+
+%----------------------------------------------------------------------------------------
+%	ABSTRACT PAGE
+%----------------------------------------------------------------------------------------
+
+
+\begin{center}
+{\bf \Large Abstract}
+\end{center}
+
+\vspace{2cm}
+
+\lipsum[1]
+    
+\vspace{1cm}
+    
+\textbf{Keywords:} KeyWord I; KeyWord II; KeyWord II.
+   
+\newpage
+\newpage
+
+%----------------------------------------------------------------------------------------
+%	LIST OF CONTENTS/FIGURES/TABLES PAGES
+%----------------------------------------------------------------------------------------
+
+\tableofcontents % Prints the main table of contents
+
+\listoffigures % Prints the list of figures
+
+\listoftables % Prints the list of tables
+
+\newpage
+\newpage
+
+%----------------------------------------------------------------------------------------
+%	THESIS CONTENT - CHAPTERS
+%----------------------------------------------------------------------------------------
+
+\mainmatter % Begin numeric (1,2,3...) page numbering
+
+\pagestyle{thesis} % Return the page headers back to the "thesis" style
+
+% Include the chapters of the thesis as separate files from the Chapters folder
+% Uncomment the lines as you write the chapters
+
+\include{Chapters/Chapter1}
+%\include{Chapters/Chapter2} 
+%\include{Chapters/Chapter3}
+%\include{Chapters/Chapter4} 
+%\include{Chapters/Chapter5} 
+
+%----------------------------------------------------------------------------------------
+%	THESIS CONTENT - APPENDICES
+%----------------------------------------------------------------------------------------
+
+\appendix % Cue to tell LaTeX that the following "chapters" are Appendices
+
+% Include the appendices of the thesis as separate files from the Appendices folder
+% Uncomment the lines as you write the Appendices
+
+\include{Appendices/AppendixA}
+%\include{Appendices/AppendixB}
+%\include{Appendices/AppendixC}
+
+%----------------------------------------------------------------------------------------
+%	BIBLIOGRAPHY
+%--------------------------------------------------------------- 
+\medskip
+%\setstretch{1.15}
+%\DeclareFieldFormat[article, inbook]{title}{#1}
+\printbibliography
+%\printbibliography[heading=bibintoc]
+%----------------------------------------------------------------------------------------
+
+\end{document}  

@@ -1,0 +1,4 @@
+Os limites dos parâmetros são:
+
+vect = np.linspace(0,30,200)
+hvec = np.linspace(0.1,1.2,100)

@@ -1,0 +1,259 @@
+\documentclass[aspectratio=169,t,xcolor=table]{beamer}
+\usepackage[utf8]{inputenc}
+
+\usepackage{booktabs} 
+\usepackage{subcaption}
+\usepackage{blindtext}
+
+\usetheme{Ufg}
+
+% DEFINITIONS
+\newtheorem{conj}{Conjecture}
+\newtheorem{defi}{Definition}
+\newtheorem{teo}{Theorem}
+\newtheorem{lema}{Lemma}
+\newtheorem{prop}{Proposition}
+\newtheorem{cor}{Corollary}
+\newtheorem{ex}{Example}
+\newtheorem{exer}{Query}
+
+\setbeamertemplate{theorems}[numbered]
+\setbeamertemplate{caption}[numbered]
+
+% PRIMARY DEFINITIONS
+
+\setPrimaryColor{Black} % Set the default Color
+
+% First one is logo in title slide and second one is the logo used in the remaining slides
+\setLogos{lib/logos/qpequi.png}{lib/logos/qpequi.png} 
+
+\begin{document}
+
+%----------------------------------------
+% TITLE SLIDE
+%----------------------------------------
+\title{Title of the talk}
+\subtitle{Subtitle}
+
+\author{Speaker}
+
+\institute[UFG]
+{
+  Institute of Physics\\
+  Federal University of Goiás
+}
+\date{2021}
+
+\frame[noframenumbering]{\titlepage}
+
+
+%----------------------------------------
+% FIRST SLIDE - TABLE OF CONTENTS
+%---------------------------------------- 
+\setLayout{vertical} % Define the layout.
+
+\begin{frame}
+    \frametitle{Table of Contents}
+    \tableofcontents
+\end{frame}
+
+
+%----------------------------------------
+% BODY OF THE PRESENTATION
+%----------------------------------------
+
+\section{Common presentation elements}
+
+\subsection{Box}
+
+\setLayout{vertical} % Set the layout
+
+%---------------------------------------------------------
+\begin{frame}{Example on using box}
+
+    \footnotesize
+    
+    \begin{ex}
+        Some text here
+    \end{ex}
+    
+    \begin{block}{Solution}
+        Some text here
+    \end{block}
+
+\end{frame}
+%---------------------------------------------------------
+
+\subsection{Table}
+
+%---------------------------------------------------------
+\begin{frame}{Example on using table}
+
+    \begin{table}[]
+        \centering
+        \caption{\label{tab:1}Countries and their codes}
+        
+        \renewcommand{\arraystretch}{1.5}
+        \setlength{\tabcolsep}{10pt}
+        
+        {\rowcolors{2}{}{LightGray!10}
+            \begin{tabular}{ p{3cm}p{3cm}p{3cm}  }
+                \toprule 
+                \textbf{Country Name} & \textbf{Code 2} & \textbf{Code 3} \\
+                \midrule
+                Afghanistan & AF &AFG \\
+                Aland Islands & AX   & ALA \\
+                Albania &AL & ALB \\
+                Algeria    &DZ & DZA \\
+                \bottomrule
+            \end{tabular}
+        }
+    \end{table}
+    
+\end{frame}
+%---------------------------------------------------------
+
+\subsection{Image}
+
+%--------------------------------------------------------- 
+\begin{frame}{Example on using image}
+
+    \begin{figure}
+        \centering
+        \includegraphics[width=.7\textwidth]{figures/mafalda.jpg}
+        \caption{The great Mafalda!}
+        \label{fig:mafalda}
+    \end{figure}
+    
+\end{frame}
+%---------------------------------------------------------
+
+\section{Changing colors and Layouts}
+
+\setLayout{blank}     % Changing layout
+
+\setBGColor{Black}  % Changing background color 
+
+%---------------------------------------------------------
+\begin{frame}{Clean layout and two-column text}
+    
+    \begin{columns}
+    
+        \column{0.5\textwidth}
+        This is a text in first column.
+        $$E=mc^2$$
+        $$ 1 + 2 + \cdots + k =  \frac{k \cdot (k + 1)}{2}.$$
+        \begin{itemize}
+        \item First item
+       
+        \item Second item
+        \end{itemize}
+        
+        \column{0.5\textwidth}
+        This text will be in the second column
+        and on a second tought this is a nice looking
+        layout in some cases.
+        
+        \begin{enumerate}
+            \item First
+            \item Second
+        \end{enumerate}
+        
+    \end{columns}
+    
+\end{frame}
+%---------------------------------------------------------
+
+%---------------------------------------------------------
+\setLayout{vertical}      % Back to the original layout.
+\setBGColor{PrimaryColor} % Back to the original colour.
+
+\begin{frame}{Sample frame title}
+    
+    In this slide, some important text will be
+    \alert{highlighted} because it's important. Please, don't abuse it.
+    
+    \begin{block}{Remark}
+        Sample text
+    \end{block}
+    
+    \begin{alertblock}{Important theorem}
+        Sample text in alert box
+    \end{alertblock}
+    
+    \begin{examples}
+        Sample text in green box. The title of the block is ``Examples".
+    \end{examples}
+    
+\end{frame}
+%---------------------------------------------------------
+
+\section{Main point layout}
+
+\setLayout{mainpoint} % Change layout again.
+\setBGColor{Black}  % Change color again.
+
+%---------------------------------------------------------
+\begin{frame}{}
+    \frametitle{\textcolor{Pequi}{Preliminary Empirical Study}}
+\end{frame}
+%-------------------------------------------------------
+
+\setLayout{horizontal}       % New layout
+\setBGColor{PrimaryColor}    % Back to the original color
+
+%-------------------------------------------------------
+\begin{frame}
+    \frametitle{Sample frame title}
+    This is a text in second frame. For the sake of showing an example.
+    
+    \begin{itemize}
+        \item<1-> Text visible on slide 1
+        \item<2-> Text visible on slide 2
+        \begin{itemize}
+            \item text subitem
+        \end{itemize}
+        \item<3> Text visible on slides 3
+        \item<4-> Text visible on slide 4
+    \end{itemize}
+\end{frame}
+%---------------------------------------------------------
+
+
+%----------------------------------------
+% LAST SLIDE - THANKS
+%----------------------------------------
+\setLayout{blank}
+\begin{frame}
+    
+    \centering
+    \vspace{2cm}
+    
+    \textbf{\Huge Thank you for your attention}
+    
+    \ \\
+    
+    \textbf{Contact}
+    \ \\
+    
+    \text{\footnotesize speaker@qpequi.com}
+    
+    \vspace{2cm}
+    \begin{figure}
+        \centering
+        \begin{subfigure}{0.2\textwidth}
+            \centering
+            \hspace{-2cm}\includegraphics[height=1.5cm]{lib/logos/qpequi.png}
+        \end{subfigure}%
+        \qquad 
+        \begin{subfigure}{0.2\textwidth}
+            \centering
+            \includegraphics[height=1.5cm]{lib/logos/ufgw.png}
+        \end{subfigure}
+      
+    \end{figure}
+    
+\end{frame}
+
+
+\end{document}

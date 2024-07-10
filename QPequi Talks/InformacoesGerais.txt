@@ -1,0 +1,25 @@
+Contas:
+
+webmail.chibebe.org
+login: communication@qpequi.com
+Senha: Mos85kRth29
+
+ZOOM: communication@qpequi.com
+Senha: Mos85kRth29
+
+YOUTUBE: communication@qpequi.com
+senha: v72k3yaq
+
+==========================================
+
+Dados da próxima transmissão:
+
+CHAVE: b5kq-zxj2-rb8a-56xc-6zjj
+Url da stream: rtmp://a.rtmp.youtube.com/live2
+URL de backup: rtmp://b.rtmp.youtube.com/live2?backup=1
+
+Join Zoom Meeting
+https://us06web.zoom.us/j/89236385492?pwd=dUppTTh3cUh6b0YrbUh3dWFOV1IrQT09
+
+Meeting ID: 892 3638 5492
+Passcode: 956398

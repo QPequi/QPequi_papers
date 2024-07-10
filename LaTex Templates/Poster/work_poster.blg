@@ -1,0 +1,60 @@
+This is BibTeX, Version 0.99d (TeX Live 2022/dev/Debian)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: work_poster.aux
+The style file: plain.bst
+Database file #1: sample.bib
+Too many commas in name 1 of "R. Dorner, S. R. Clark, L. Heaney, R. Fazio, J. Goold and V. Vedral" for entry Vlatko
+while executing---line 1049 of file plain.bst
+Too many commas in name 1 of "R. Dorner, S. R. Clark, L. Heaney, R. Fazio, J. Goold and V. Vedral" for entry Vlatko
+while executing---line 1049 of file plain.bst
+Warning--empty title in PRX_Jarzynski
+Warning--empty title in Mauro
+Warning--empty title in Campisi
+Warning--empty title in Esposito
+Too many commas in name 1 of "R. Dorner, S. R. Clark, L. Heaney, R. Fazio, J. Goold and V. Vedral" for entry Vlatko
+while executing---line 1090 of file plain.bst
+Too many commas in name 1 of "R. Dorner, S. R. Clark, L. Heaney, R. Fazio, J. Goold and V. Vedral" for entry Vlatko
+while executing---line 1090 of file plain.bst
+Warning--empty title in Vlatko
+You've used 6 entries,
+            2118 wiz_defined-function locations,
+            534 strings with 4478 characters,
+and the built_in function-call counts, 1695 in all, are:
+= -- 154
+> -- 72
+< -- 0
++ -- 28
+- -- 22
+* -- 125
+:= -- 297
+add.period$ -- 13
+call.type$ -- 6
+change.case$ -- 23
+chr.to.int$ -- 0
+cite$ -- 11
+duplicate$ -- 67
+empty$ -- 143
+format.name$ -- 22
+if$ -- 342
+int.to.chr$ -- 0
+int.to.str$ -- 6
+missing$ -- 7
+newline$ -- 28
+num.names$ -- 12
+pop$ -- 33
+preamble$ -- 1
+purify$ -- 23
+quote$ -- 0
+skip$ -- 41
+stack$ -- 0
+substring$ -- 105
+swap$ -- 6
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 22
+warning$ -- 5
+while$ -- 17
+width$ -- 7
+write$ -- 57
+(There were 4 error messages)

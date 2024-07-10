@@ -1,0 +1,13 @@
+Primeiro passo:
+
+ssh pedro@200.137.199.28
+
+
+Copiar arquivos:
+
+scp -P 2222 pedro@200.137.199.28:~/arquivo_com_o_caminho . 
+
+
+Mandar arquivo: 
+
+scp -P 2222 arquivo pedro@200.137.199.28:~/caminho_do_arquivo 
